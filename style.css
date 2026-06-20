@@ -505,6 +505,26 @@ body {
   overflow-wrap: break-word;
 }
 
+.card-cta {
+  margin-top: 25px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.card-cta .arrow {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.essence-card:hover .card-cta .arrow {
+  transform: translateX(5px);
+}
+
 @media (max-width: 1200px) {
   .essence-grid {
     grid-template-columns: repeat(2, 1fr);
