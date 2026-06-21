@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 // Google Apps Script Web App URL (상단에 상수로 배치)
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzngGtQ17CyjrbDSPKnfGKh1KqFAlXgGQKZRaS4Y4dxCyNb-SudXxkpPBcOeDmLEm1kTQ/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzSNAEvPE1XRL8o1AEXj3-6JeeOdhofDnSrldDAdv7HMfT1K7F1iZSrv5SFlKA_NgpW2w/exec";
 
 interface FormData {
   name: string;
@@ -80,7 +80,7 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
       alert("개인정보 수집 및 이용에 동의해 주세요.");
       return;
     }
-    
+
     // Step 1 임시 저장 (중간 이탈자 팔로우업용)
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
@@ -99,8 +99,8 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
     } catch (error) {
       console.error("Step 1 전송 실패:", error);
     }
-    
-    handleNext(); 
+
+    handleNext();
   };
 
   const onSubmitFinal = async () => {
@@ -180,13 +180,13 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
           <div className="text-sm font-semibold tracking-widest text-[#D4AF37]">THE WELLSAM</div>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-800 transition-colors">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 6L6 18M6 6l12 12"/>
+              <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
         </div>
         {/* Progress Bar */}
         <div className="h-1 w-full bg-gray-200">
-          <div 
+          <div
             className="h-full bg-[#D4AF37] transition-all duration-500 ease-out"
             style={{ width: `${progressPercent}%` }}
           />
@@ -196,19 +196,19 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
       {/* Main Form Content */}
       <div className="flex-1 flex items-center justify-center p-6 w-full max-w-2xl mx-auto animate-fade-in-up">
         <div className="w-full space-y-8">
-          
+
           {/* STEP 1 */}
           {step === 1 && (
             <div className="space-y-6">
               <h2 className="text-2xl md:text-3xl font-light text-gray-800">
-                맞춤형 자가진단을 위한<br/>
+                맞춤형 자가진단을 위한<br />
                 <span className="font-medium text-[#D4AF37]">기본 정보</span>를 입력해 주세요.
               </h2>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm text-gray-600 mb-1">성함</label>
                   <input type="text" value={formData.name} onChange={e => handleChange('name', e.target.value)}
-                    className="w-full border-b border-gray-300 py-2 bg-transparent focus:outline-none focus:border-[#D4AF37] transition-colors text-lg" 
+                    className="w-full border-b border-gray-300 py-2 bg-transparent focus:outline-none focus:border-[#D4AF37] transition-colors text-lg"
                     placeholder="홍길동" />
                 </div>
                 <div>
@@ -225,7 +225,7 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
                 <div>
                   <label className="block text-sm text-gray-600 mb-1">연락처</label>
                   <input type="tel" value={formData.phone} onChange={e => handleChange('phone', e.target.value)}
-                    className="w-full border-b border-gray-300 py-2 bg-transparent focus:outline-none focus:border-[#D4AF37] transition-colors text-lg" 
+                    className="w-full border-b border-gray-300 py-2 bg-transparent focus:outline-none focus:border-[#D4AF37] transition-colors text-lg"
                     placeholder="010-0000-0000" />
                 </div>
                 <div className="pt-4 space-y-2">
@@ -253,13 +253,13 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
           {step === 2 && (
             <div className="space-y-8 text-center">
               <h2 className="text-2xl md:text-3xl font-light text-gray-800 leading-relaxed">
-                최근 6개월간 본인이 체감하는<br/>
+                최근 6개월간 본인이 체감하는<br />
                 <span className="font-medium">전신 건강 점수</span>는 몇 점인가요?
               </h2>
               <div className="py-8">
                 <span className="text-5xl font-light text-[#D4AF37]">{formData.q1Score}</span><span className="text-2xl text-gray-400 ml-1">/ 10</span>
-                <input 
-                  type="range" min="1" max="10" value={formData.q1Score} 
+                <input
+                  type="range" min="1" max="10" value={formData.q1Score}
                   onChange={e => handleChange('q1Score', parseInt(e.target.value))}
                   className="w-full mt-8 accent-[#D4AF37]"
                 />
@@ -276,7 +276,7 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
           {step === 3 && (
             <div className="space-y-8">
               <h2 className="text-2xl md:text-3xl font-light text-gray-800 leading-relaxed">
-                오늘 자가진단을 통해<br/>
+                오늘 자가진단을 통해<br />
                 가장 <span className="font-medium">정밀하게 체크</span>받고 싶은 영역은 어디인가요?
               </h2>
               <div className="space-y-3">
@@ -361,8 +361,8 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
               </h2>
               {trackQs.q6.type === "textarea" ? (
                 <div className="space-y-4">
-                  <textarea 
-                    value={formData.q6} 
+                  <textarea
+                    value={formData.q6}
                     onChange={e => handleChange('q6', e.target.value)}
                     className="w-full h-32 p-4 border border-gray-300 rounded focus:outline-none focus:border-[#D4AF37] bg-white resize-none"
                     placeholder="자유롭게 기재해 주세요."
@@ -400,10 +400,10 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
                   </button>
                 ))}
                 <div className="flex gap-2">
-                   <input type="text" placeholder="기타 (직접 입력)" value={formData.q7 !== '없음' && formData.q7 !== '고혈압·당뇨약' && formData.q7 !== '아스피린·항응고제' ? formData.q7 : ''}
+                  <input type="text" placeholder="기타 (직접 입력)" value={formData.q7 !== '없음' && formData.q7 !== '고혈압·당뇨약' && formData.q7 !== '아스피린·항응고제' ? formData.q7 : ''}
                     onChange={e => handleChange('q7', e.target.value)}
                     className="flex-1 border border-gray-300 rounded px-6 py-4 focus:outline-none focus:border-[#D4AF37] bg-white" />
-                   <button onClick={handleNext} disabled={!formData.q7} className="px-8 bg-[#1A1817] text-white rounded font-medium hover:bg-black transition-colors">다음</button>
+                  <button onClick={handleNext} disabled={!formData.q7} className="px-8 bg-[#1A1817] text-white rounded font-medium hover:bg-black transition-colors">다음</button>
                 </div>
               </div>
             </div>
@@ -422,13 +422,13 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
                   <span className="text-lg text-gray-800">없음</span>
                 </button>
                 <div className="flex flex-col gap-3 pt-2">
-                   <label className="text-sm text-gray-500">있으시다면 질환명을 입력해 주세요.</label>
-                   <div className="flex gap-2">
+                  <label className="text-sm text-gray-500">있으시다면 질환명을 입력해 주세요.</label>
+                  <div className="flex gap-2">
                     <input type="text" placeholder="예: 류마티스 관절염" value={formData.q8 !== '없음' ? formData.q8 : ''}
                       onChange={e => handleChange('q8', e.target.value)}
                       className="flex-1 border border-gray-300 rounded px-6 py-4 focus:outline-none focus:border-[#D4AF37] bg-white" />
                     <button onClick={handleNext} disabled={!formData.q8} className="px-8 bg-[#1A1817] text-white rounded font-medium hover:bg-black transition-colors">다음</button>
-                   </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -493,8 +493,8 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
                   <div className="space-y-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">희망 대면 상담 일정</label>
-                      <input 
-                        type="datetime-local" 
+                      <input
+                        type="datetime-local"
                         value={formData.q11Date}
                         onChange={e => handleChange('q11Date', e.target.value)}
                         className="w-full border border-gray-300 rounded px-4 py-3 bg-white focus:outline-none focus:border-[#D4AF37]"
@@ -502,14 +502,14 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">의료진에게 미리 전달하실 특이사항 (선택)</label>
-                      <textarea 
+                      <textarea
                         value={formData.q12Memo}
                         onChange={e => handleChange('q12Memo', e.target.value)}
                         className="w-full h-24 p-4 border border-gray-300 rounded focus:outline-none focus:border-[#D4AF37] bg-white resize-none"
                         placeholder="이전에 받으신 시술이나, 특별히 피하고 싶으신 치료법이 있다면 적어주세요."
                       />
                     </div>
-                    <button 
+                    <button
                       onClick={onSubmitFinal}
                       disabled={isSubmitting}
                       className="w-full bg-[#1A1817] text-[#D4AF37] py-4 rounded text-lg font-medium hover:bg-black transition-colors disabled:opacity-70 flex justify-center items-center"
@@ -538,12 +538,13 @@ export default function ConsultationForm({ onClose }: { onClose: () => void }) {
             </button>
             <span className="text-xs text-gray-400">{step} / 11</span>
             {/* 다음 버튼은 문항별로 내부에 구현되어 있으나, 스킵이나 보조 용도로 필요할 시 추가 가능 */}
-            <div className="w-[60px]"></div> 
+            <div className="w-[60px]"></div>
           </div>
         </div>
       )}
-      
-      <style dangerouslySetInnerHTML={{__html: `
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .animate-fade-in-up {
           animation: fadeInUp 0.5s ease-out forwards;
         }

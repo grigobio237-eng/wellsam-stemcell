@@ -40,7 +40,7 @@ function initCanvasParticles() {
   // Particle Settings
   const particlesArray = [];
   const numberOfParticles = Math.min(60, Math.floor((window.innerWidth * window.innerHeight) / 18000));
-  
+
   // Mouse & Scroll interaction state
   const mouse = {
     x: null,
@@ -77,18 +77,18 @@ function initCanvasParticles() {
       this.radius = Math.random() * 6 + 2; // Particle size
       this.x = Math.random() * canvas.width;
       this.y = initial ? Math.random() * canvas.height : canvas.height + this.radius + 10;
-      
+
       // Floating speed (slow and drift-like)
       this.vx = (Math.random() - 0.5) * 0.3;
       this.vy = -(Math.random() * 0.4 + 0.1); // Always float upwards slightly
-      
+
       this.baseAlpha = Math.random() * 0.4 + 0.15;
       this.alpha = this.baseAlpha;
-      
+
       // Light gold or pearl white color hues
       const isGold = Math.random() > 0.7;
       this.color = isGold ? '212, 175, 55' : '246, 245, 242';
-      
+
       // Floating amplitude and frequency
       this.amplitude = Math.random() * 0.5 + 0.2;
       this.waveSpeed = Math.random() * 0.02 + 0.005;
@@ -97,16 +97,16 @@ function initCanvasParticles() {
 
     draw() {
       ctx.beginPath();
-      
+
       // Outer glow gradient
       const gradient = ctx.createRadialGradient(
-        this.x, this.y, 0, 
+        this.x, this.y, 0,
         this.x, this.y, this.radius * 3
       );
       gradient.addColorStop(0, `rgba(${this.color}, ${this.alpha})`);
       gradient.addColorStop(0.3, `rgba(${this.color}, ${this.alpha * 0.5})`);
       gradient.addColorStop(1, `rgba(${this.color}, 0)`);
-      
+
       ctx.fillStyle = gradient;
       ctx.arc(this.x, this.y, this.radius * 3, 0, Math.PI * 2);
       ctx.fill();
@@ -128,15 +128,15 @@ function initCanvasParticles() {
         let dx = this.x - mouse.x;
         let dy = this.y - mouse.y;
         let distance = Math.sqrt(dx * dx + dy * dy);
-        
+
         if (distance < mouse.radius) {
           const force = (mouse.radius - distance) / mouse.radius;
           const angle = Math.atan2(dy, dx);
-          
+
           // Gently push particle away
           this.x += Math.cos(angle) * force * 1.5;
           this.y += Math.sin(angle) * force * 1.5;
-          
+
           // Light up near mouse
           this.alpha = Math.min(0.8, this.baseAlpha + force * 0.4);
         } else {
@@ -163,7 +163,7 @@ function initCanvasParticles() {
   function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    
+
     // Clear and reinitialize if size changes significantly
     particlesArray.length = 0;
     for (let i = 0; i < numberOfParticles; i++) {
@@ -177,7 +177,7 @@ function initCanvasParticles() {
   // Animation Loop
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+
     // Decay scrollDelta decay slowly
     scrollDelta *= 0.95;
     if (Math.abs(scrollDelta) < 0.1) scrollDelta = 0;
@@ -196,7 +196,7 @@ function initCanvasParticles() {
 /* 3. Intersection Observer for Scroll Reveals */
 function initScrollReveal() {
   const revealElements = document.querySelectorAll('.reveal-up');
-  
+
   const observerOptions = {
     root: null, // viewport
     rootMargin: '0px',
@@ -344,7 +344,7 @@ function initDetailPages() {
       // Check if it's the new landing page format (has conceptImage)
       if (data.conceptImage) {
         dynamicContent.classList.add('scroll-mode');
-        
+
         let mechanismsHtml = '';
         data.mechanisms.forEach(mech => {
           mechanismsHtml += `
@@ -389,18 +389,12 @@ function initDetailPages() {
                 </ul>
               </div>
             </div>
-
-            <div class="detail-cta-box" style="margin-top: 64px; text-align: center; padding-bottom: 32px;">
-              <button class="btn btn-luxury-white detail-consultation-btn">
-                상담 신청하기 <span class="arrow">→</span>
-              </button>
-            </div>
           </div>
         `;
       } else {
         // Legacy Split Layout
         dynamicContent.classList.remove('scroll-mode');
-        
+
         let mechanismsHtml = '';
         data.mechanisms.forEach(mech => {
           mechanismsHtml += `
@@ -442,12 +436,6 @@ function initDetailPages() {
                 </ul>
               </div>
             </div>
-
-            <div class="detail-cta-box" style="margin-top: 48px;">
-              <button class="btn btn-luxury-white detail-consultation-btn">
-                상담 신청하기 <span class="arrow">→</span>
-              </button>
-            </div>
           </div>
 
           <div class="detail-visual-side">
@@ -458,20 +446,9 @@ function initDetailPages() {
         `;
       }
 
-      // Add event listener to the dynamically created consultation button
-      const detailCtaBtn = dynamicContent.querySelector('.detail-consultation-btn');
-      if (detailCtaBtn) {
-        detailCtaBtn.addEventListener('click', () => {
-          closeOverlay();
-          if (typeof window.openModal === 'function') {
-            window.openModal();
-          }
-        });
-      }
-
       // Show Overlay
       overlay.classList.add('active');
-      
+
       // Lock background scroll without jumping
       const scrollY = window.scrollY;
       document.body.style.position = 'fixed';
@@ -484,14 +461,14 @@ function initDetailPages() {
   // Close details
   function closeOverlay() {
     overlay.classList.remove('active');
-    
+
     // Unlock background scroll and restore position
     const scrollY = parseInt(document.body.getAttribute('data-scroll-y') || '0', 10);
     document.body.style.position = '';
     document.body.style.top = '';
     document.body.style.width = '';
     window.scrollTo(0, scrollY);
-    
+
     // Clear dynamic content after transition to save resources
     setTimeout(() => {
       if (!overlay.classList.contains('active')) {

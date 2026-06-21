@@ -1508,3 +1508,52 @@ footer {
     padding: 60px 20px;
   }
 }
+
+.consultation-flow-wrapper {
+  margin: 3rem 0;
+  text-align: left;
+  border-left: 2px solid rgba(212, 175, 55, 0.3);
+  padding-left: 20px;
+}
+.flow-title {
+  color: var(--color-gold);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+.flow-step.highlight-step {
+  opacity: 1;
+  transform: translateX(5px);
+}
+.step-num {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  font-weight: 600;
+  min-width: 30px;
+}
+.step-info h4 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.step-info p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+.flow-step.highlight-step .step-info h4 {
+  color: var(--color-gold);
+}
