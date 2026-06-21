@@ -706,7 +706,7 @@ body {
 @media (max-width: 992px) {
   #hero {
     min-height: auto;
-    padding: 100px 0 50px;
+    padding: 100px 0 10px;
     align-items: flex-start;
   }
   .hero-container {
@@ -760,14 +760,39 @@ body {
   .hero-desc {
     font-size: 14px;
   }
+  #why-wellsam {
+    padding-top: 10px;
+    padding-bottom: 40px;
+  }
+  .why-header {
+    margin-bottom: 30px;
+  }
   .recommend-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .recommend-card {
+    padding: 20px 15px;
+  }
+  .rec-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  .recommend-card h4 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .recommend-card p {
+    font-size: 13px;
+    margin-bottom: 15px;
   }
   .why-title {
-    font-size: 32px;
+    font-size: 30px;
+    margin-bottom: 15px;
   }
   .why-subheading {
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 20px;
   }
   .criteria-item {
     padding: 15px 20px;
@@ -775,9 +800,16 @@ body {
   .criteria-item p {
     font-size: 14px;
   }
+  .why-criteria {
+    margin-bottom: 30px;
+  }
+  .why-footer {
+    margin-top: 30px;
+  }
   .why-disclaimer {
     flex-direction: column;
     padding: 20px;
+    gap: 10px;
   }
 }
 
