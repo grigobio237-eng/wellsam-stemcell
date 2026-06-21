@@ -5,6 +5,7 @@ const totalSteps = 12;
 let formData = {
   name: '',
   gender: '',
+  ageGroup: '',
   phone: '',
   privacyConsent: false,
   marketingConsent: false,
@@ -71,8 +72,8 @@ window.updateData = function(field, value) {
 };
 
 window.submitStep1 = async function() {
-  if (!formData.name || !formData.phone || !formData.gender) {
-    alert("이름, 성별, 연락처를 모두 입력해 주세요.");
+  if (!formData.name || !formData.phone || !formData.gender || !formData.ageGroup) {
+    alert("이름, 연령대, 성별, 연락처를 모두 입력해 주세요.");
     return;
   }
   if (!formData.privacyConsent) {
@@ -90,6 +91,7 @@ window.submitStep1 = async function() {
         timestamp: new Date().toISOString(),
         name: formData.name,
         gender: formData.gender,
+        ageGroup: formData.ageGroup,
         phone: formData.phone,
         marketingConsent: formData.marketingConsent,
         thirdPartyConsent: formData.thirdPartyConsent
@@ -191,15 +193,29 @@ function renderStep() {
             <label class="cf-label">성함</label>
             <input type="text" class="cf-input" placeholder="홍길동" value="${formData.name}" onchange="updateData('name', this.value)">
           </div>
-          <div>
-            <label class="cf-label">성별</label>
-            <div class="cf-flex-gap-4">
-              <label class="cf-radio-btn ${formData.gender === '남성' ? 'active' : ''}">
-                <input type="radio" class="cf-hidden" name="gender" value="남성" ${formData.gender === '남성' ? 'checked' : ''} onchange="updateData('gender', '남성')">남성
-              </label>
-              <label class="cf-radio-btn ${formData.gender === '여성' ? 'active' : ''}">
-                <input type="radio" class="cf-hidden" name="gender" value="여성" ${formData.gender === '여성' ? 'checked' : ''} onchange="updateData('gender', '여성')">여성
-              </label>
+          <div class="cf-flex-gap-4">
+            <div style="flex:1;">
+              <label class="cf-label">연령대</label>
+              <select class="cf-input" onchange="updateData('ageGroup', this.value)" style="cursor: pointer; appearance: none; background: transparent url('data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'24\\' height=\\'24\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'2\\' stroke-linecap=\\'round\\' stroke-linejoin=\\'round\\'><polyline points=\\'6 9 12 15 18 9\\'></polyline></svg>') no-repeat right 4px center; padding-right: 24px;">
+                <option value="" disabled ${!formData.ageGroup ? 'selected' : ''}>선택해주세요</option>
+                <option value="10대" ${formData.ageGroup === '10대' ? 'selected' : ''}>10대</option>
+                <option value="20대" ${formData.ageGroup === '20대' ? 'selected' : ''}>20대</option>
+                <option value="30대" ${formData.ageGroup === '30대' ? 'selected' : ''}>30대</option>
+                <option value="40대" ${formData.ageGroup === '40대' ? 'selected' : ''}>40대</option>
+                <option value="50대" ${formData.ageGroup === '50대' ? 'selected' : ''}>50대</option>
+                <option value="60대 이상" ${formData.ageGroup === '60대 이상' ? 'selected' : ''}>60대 이상</option>
+              </select>
+            </div>
+            <div style="flex:1;">
+              <label class="cf-label">성별</label>
+              <div class="cf-flex-gap-4">
+                <label class="cf-radio-btn ${formData.gender === '남성' ? 'active' : ''}" style="padding: 8px 0;">
+                  <input type="radio" class="cf-hidden" name="gender" value="남성" ${formData.gender === '남성' ? 'checked' : ''} onchange="updateData('gender', '남성')">남성
+                </label>
+                <label class="cf-radio-btn ${formData.gender === '여성' ? 'active' : ''}" style="padding: 8px 0;">
+                  <input type="radio" class="cf-hidden" name="gender" value="여성" ${formData.gender === '여성' ? 'checked' : ''} onchange="updateData('gender', '여성')">여성
+                </label>
+              </div>
             </div>
           </div>
           <div>
@@ -221,7 +237,7 @@ function renderStep() {
             </label>
           </div>
         </div>
-        <button onclick="submitStep1()" class="cf-btn-primary cf-mt-8">진단 시작하기</button>
+        <button onclick="submitStep1()" class="cf-btn-primary cf-mt-8">사전상담 시작하기</button>
       </div>
     `;
   } else if (step === 2) {
