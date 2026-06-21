@@ -247,46 +247,29 @@ const cardDetailsData = [
     ]
   },
   {
-    tag: 'SMART REGENERATION',
-    title: '손상된 조직의 치유',
+    tag: 'PAIN & JOINT REGENERATION',
+    title: '비수술 관절·통증 재생',
     subtitle: 'Deep Tissue Healing',
-    concept: '만성 통증과 관절 질환에 대한 비수술적이고 근본적인 해결책을 과학적으로 제시합니다.',
+    concept: '수술에 대한 두려움과 오랜 회복 기간 없이, 내 몸이 가진 본연의 치유력으로 손상된 조직을 다시 세웁니다. 닳고 찢겨 통증을 유발하는 관절과 인대에 줄기세포를 직접 투여하여, 염증을 잠재우고 조직 자체를 건강하게 재생시키는 근본적인 비수술 치료입니다.',
+    conceptImage: '/detail2-concept.webp',
     mechanisms: [
       {
-        title: '호밍 효과 (Homing Effect)',
-        desc: '줄기세포는 체내에 주입되었을 때, 염증이나 손상이 발생한 부위에서 보내는 조난 신호(Chemokine)를 스스로 감지하고 해당 부위로 정확하게 이동하는 스마트한 추적 능력을 가지고 있습니다.'
+        title: '통증의 뿌리를 찾아가는 스마트 추적 시스템',
+        desc: '우리 몸에 투여된 줄기세포는 염증이 있거나 손상된 부위가 보내는 \'구조 신호\'를 스스로 감지하여 정확하게 찾아갑니다. 통증의 근원지에 도달하여 강력한 항염증 성분을 뿜어내어 지긋지긋한 만성 통증과 붓기를 빠르게 가라앉힙니다.',
+        image: '/detail2-mechanism1.webp'
       },
       {
-        title: '조직 분화 및 염증 차단',
-        desc: '손상된 연골이나 인대에 도달한 줄기세포는 해당 조직의 세포로 직접 분화(Differentiation)하여 결손 부위를 메우고, 강력한 항염증성 사이토카인을 방출하여 통증의 원인인 염증 연쇄 반응을 차단합니다.'
+        title: '손상된 연골과 인대의 직접 재생',
+        desc: '단순히 통증만 일시적으로 가리는 진통제나 스테로이드가 아닙니다. 손상된 부위에 자리 잡은 줄기세포는 연골과 인대 세포로 직접 변환되어, 닳아 없어진 빈 공간을 튼튼하고 쫀쫀한 새 조직으로 채워 넣습니다.',
+        image: '/detail2-mechanism2.webp'
       }
     ],
     effects: [
-      '퇴행성 관절염 연골 마모 지연 및 재생 촉진',
-      '만성 염증 수치 저하 및 인대/건 조직의 근본적 강화'
-    ],
-    visualSvg: `
-      <svg class="visual-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 80 300 C 100 210, 200 280, 250 180" stroke="rgba(255,255,255,0.06)" stroke-width="1.2" stroke-dasharray="6 4" fill="none"/>
-        
-        <g transform="translate(250, 180)">
-          <circle cx="0" cy="0" r="45" fill="none" stroke="rgba(235, 94, 85, 0.12)" stroke-width="1" class="injury-pulse" style="animation-delay: 0s;"/>
-          <circle cx="0" cy="0" r="28" fill="none" stroke="rgba(235, 94, 85, 0.22)" stroke-width="1.2" class="injury-pulse" style="animation-delay: 0.8s;"/>
-          <circle cx="0" cy="0" r="14" fill="rgba(235, 94, 85, 0.08)" class="glowing-node-red"/>
-          <circle cx="0" cy="0" r="4" fill="rgba(235, 94, 85, 0.8)"/>
-        </g>
-        
-        <g transform="translate(250, 180)">
-          <circle cx="0" cy="0" r="18" fill="none" stroke="var(--color-gold)" stroke-width="1.2" class="anti-inflammatory-wave" style="animation-delay: 2.2s;"/>
-          <circle cx="0" cy="0" r="18" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" class="anti-inflammatory-wave" style="animation-delay: 4.2s;"/>
-        </g>
-
-        <g class="homing-cell">
-          <circle cx="250" cy="180" r="16" fill="rgba(212, 175, 55, 0.12)" stroke="var(--color-gold)" stroke-width="1.2" class="glowing-node"/>
-          <circle cx="250" cy="180" r="5" fill="var(--color-gold)"/>
-        </g>
-      </svg>
-    `
+      '퇴행성 관절염으로 인한 무릎·어깨 통증의 획기적 완화',
+      '스포츠 손상, 테니스 엘보 등 찢어진 인대 및 힘줄의 빠른 복구',
+      '수술 및 마취에 대한 부담 없이 시술 후 빠른 일상생활 복귀',
+      '진통제 의존도를 낮추고 자유롭고 편안한 움직임 회복'
+    ]
   },
   {
     tag: 'SYSTEMIC REVITALIZATION',
