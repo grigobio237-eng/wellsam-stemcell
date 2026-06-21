@@ -180,7 +180,14 @@ body {
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 80px 0;
+    padding: 50px 0;
+  }
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .header-subtitle {
+    font-size: 11px;
+    margin-bottom: 10px;
   }
   .header-title {
     font-size: 24px;
@@ -2473,7 +2480,36 @@ footer {
 @media (max-width: 992px) {
   .space-flow-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .space-flow-bg {
+    padding: 50px 0;
+  }
+  .space-flow-grid {
+    gap: 30px;
+  }
+  .timeline-title {
+    margin-bottom: 30px;
+  }
+  .flow-step-item {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  .space-info-card {
+    padding: 20px;
   }
 }
 
 
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.2rem; }
+  .feature-title { font-size: 1.2rem; margin-bottom: 10px; }
+  .feature-desc { font-size: 0.95rem; }
+  .essence-title { font-size: 1.3rem; }
+  .essence-desc { font-size: 0.95rem; }
+  .doctor-name { font-size: 1.5rem; }
+  .doctor-role { font-size: 0.95rem; }
+}
