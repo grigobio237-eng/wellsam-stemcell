@@ -332,7 +332,8 @@ body {
 .hero-container {
   position: relative;
   z-index: 2;
-  width: 100%;
+  width: 90%;
+  max-width: var(--max-width);
   height: 100%;
   display: flex;
   align-items: center;
