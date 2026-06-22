@@ -27,10 +27,8 @@ let isSubmitting = false;
 let analysisLoading = false;
 
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('consultation-btn');
-  if (btn) {
-    btn.addEventListener('click', openModal);
-  }
+  const btns = document.querySelectorAll('.consultation-btn');
+  btns.forEach(btn => btn.addEventListener('click', openModal));
 });
 
 window.openModal = function() {
